@@ -14,8 +14,11 @@ $(function( $ ) {
         initialize: function() {
             var cellModel;
 
+            //The number of rows and columns of cells
             this.gridSize = 25;
+            //Number between 0 and 1 that determines initial percentage of alive cells
             this.populationDensity = .5;
+            //Number of ms between state updates
             this.speed = 750;
 
             this.totalCellNum = this.gridSize * this.gridSize;
@@ -23,7 +26,7 @@ $(function( $ ) {
             //create the initial grid of cells
             for(var i = 0; i < this.totalCellNum ; i++){
                 cellModel = new life.Cell();
-                if(Math.random() > this.populationDensity){
+                if(Math.random() < this.populationDensity){
                     cellModel.set("alive", true);
                 }
                 cellModel.set({"xCoord": i%this.gridSize, "yCoord": Math.floor(i/this.gridSize) });
@@ -61,57 +64,12 @@ $(function( $ ) {
         updateState: function() {
             life.Cells.each(function(cell){
                 if(cell.get('alive')){
-                    this.checkIfNeedsToDie(cell);
+                    cell.checkIfNeedsToDie();
                 }
                 else {
-                    this.checkIfNeedstoBeBorn(cell);
+                    cell.checkIfNeedstoBeBorn();
                 }
-            }.bind(this));
-        },
-
-        checkIfNeedsToDie: function(cell) {
-            var livingNeighborCount = this.getLivingNeighborCount(cell);
-            if((livingNeighborCount < 2) || (livingNeighborCount > 3)){
-                this.killCell(cell);
-            }   
-        },
-
-        checkIfNeedstoBeBorn: function(cell) {
-            var livingNeighborCount = this.getLivingNeighborCount(cell);
-            if(livingNeighborCount === 3){
-                this.makeAlive(cell);
-            }
-        },
-
-        getLivingNeighborCount: function(cell) {
-            var neighborCount = 0;
-            var currentXCoord = cell.get('xCoord');
-            var currentYCoord = cell.get('yCoord');
-
-            var livingNeighbors = life.Cells.filter(function(cell){
-                return cell.get('alive') && (
-                    (cell.get('xCoord') === currentXCoord - 1 && cell.get('yCoord') === currentYCoord - 1) ||
-                    (cell.get('xCoord') === currentXCoord - 1 && cell.get('yCoord') === currentYCoord) ||
-                    (cell.get('xCoord') === currentXCoord - 1 && cell.get('yCoord') === currentYCoord + 1) ||
-                    (cell.get('xCoord') === currentXCoord && cell.get('yCoord') === currentYCoord - 1) ||
-                    (cell.get('xCoord') === currentXCoord && cell.get('yCoord') === currentYCoord + 1) ||
-                    (cell.get('xCoord') === currentXCoord + 1 && cell.get('yCoord') === currentYCoord - 1) ||
-                    (cell.get('xCoord') === currentXCoord + 1 && cell.get('yCoord') === currentYCoord) ||
-                    (cell.get('xCoord') === currentXCoord + 1 && cell.get('yCoord') === currentYCoord + 1)
-                )
             });
-
-            var y = 2;
-            return livingNeighbors.length;
-
-        },
-
-        makeAlive: function(cell) {
-            cell.set('alive', true);
-        },
-
-        killCell: function(cell) {
-            cell.set({'alive': false});
         }
 
     });
