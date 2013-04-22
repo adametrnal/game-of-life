@@ -1,0 +1,14 @@
+.cell-view {
+    border-color: black;
+    border-style: solid;
+    width:20px;
+    height:20px;
+}
+
+.table-element {
+    padding:0;
+}
+
+.alive {
+    background-color: red;
+}
