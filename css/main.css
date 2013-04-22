@@ -1,8 +1,55 @@
+header, .descriptionBox {
+    text-align: center;
+}
+ol {
+    list-style-position: inside;
+}
+
+h1 {
+    font-family: 'Arvo', Arial, serif;
+    font-weight: 400;
+    margin-bottom:5px;
+    margin-top: 5px;
+    color: #fff;
+    background-color: rgba(0,0,0,.4); 
+}
+
+p, ol {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-size: .8em;
+    color: #fff;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6); 
+}
+
+html { 
+  background: url(../img/bg_full.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.descriptionBox {
+    padding:10px;
+}
+
+#game-board {
+    margin: 0 auto;
+}
+
+.description {
+    margin-top: 5px;
+}
+
+.tableContainer {
+    padding-bottom: 20px;    
+}
 .cell-view {
     border-color: black;
     border-style: solid;
-    width:20px;
-    height:20px;
+    width:7px;
+    height:7px;
 }
 
 .table-element {
@@ -12,3 +59,10 @@
 .alive {
     background-color: red;
 }
+
+.wrapper {
+    width: 960px;
+    margin: 0px auto;
+    background-color: rgba(155,155,155,.4);
+}
+

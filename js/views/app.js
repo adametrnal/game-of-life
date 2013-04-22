@@ -15,7 +15,7 @@ $(function( $ ) {
             var cellModel;
 
             //The number of rows and columns of cells
-            this.gridSize = 25;
+            this.gridSize = 35;
             //Number between 0 and 1 that determines initial percentage of alive cells
             this.populationDensity = .5;
             //Number of ms between state updates

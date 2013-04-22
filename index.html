@@ -3,11 +3,31 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href='http://fonts.googleapis.com/css?family=Arvo|Noto+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
     <title>Game of Life</title>
 </head>
 <body>
-    <table id="game-board" ></table>
+    <header class="wrapper">
+            <h1>Game of Life with Backbone.js</h1>
+    </header>
+    <div class="wrapper">
+        <div class="descriptionBox">
+            <p class="description">The Game of Life is a classic example of cellular automaton that was 
+                <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">
+                    invented by John Conway in 1970.</a> The game shows that incredibly complex phenomena can be observed from only a few simple rules: </p>
+            <ol>
+                <li> Any living cell with fewer than two neighbors will die from lonelyness</li>
+                <li> Any living cell with more than three neighbors will die from overpopulation.</li>
+                <li> Any dead cell with exactly three neighbors will be born.</li>
+                <li> Any living cell with two or three neighbors will live on.</li>
+            </ol>
+
+        </div>
+        <div class="tableContainer">
+            <table id="game-board" ></table>
+        </div>
+    </div>
     <script type="text/template" id="cell-template">
         <div class="cell-view"></div>
     </script>
@@ -22,5 +42,6 @@
     <script src="js/views/cell.js"></script>
     <script src="js/views/app.js"></script>
     <script src="js/life.js"></script>
+    
 </body>
 </html>
