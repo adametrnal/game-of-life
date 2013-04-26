@@ -13,5 +13,7 @@ The Game of Life is a classic example of cellular automaton that was [invented b
 2. Any living cell with more than three neighbors will die from overpopulation.
 3. Any dead cell with exactly three neighbors will be born.
 4.  Any living cell with two or three neighbors will live on.
+
+The code is currently running [here](http://adam-brill.com/sites/game_of_life/)
   
 
